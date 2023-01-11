@@ -1,7 +1,4 @@
-# Automated-scoring-of-handwritten-test-papers
-**For Vietnamese student, you can read the `LVTN_Mai Chí Bảo_1710586.pdf` and `LVTN_Mai Chí Bảo_1710586.pptx` which is written in Vietnamese. For foreign reader, I'll update the English version ASAP**
-* Hệ thống nhập điểm tự động từ ảnh bài thi - Demo on Youtube: https://youtu.be/EUY0zR642f0
-* Automatic Scoring of Handwritten test papers (Youtube - link full): https://youtu.be/fqVMa03iPVE
+# INFORMATION-RECOGNITION-ON-THE-UNIVERSITY-TEST-PAPER
 
 ## Table of contents
 * [1. Introduction](#1-Introduction)
@@ -18,11 +15,6 @@
 This project is a part of my thesis. In short, a secondary school teacher spend too much time on updating score manually (around 4000 test papers/year according to this [news](https://giaoduc.net.vn/giao-duc-24h/thong-tu-so-26-2020-tt-bgddt-da-go-bo-duoc-nhieu-ap-luc-cho-hoc-tro-va-giao-vien-post212222.gd) )
 
 The goal of the thesis is to assist teachers in automatically updating results in Excel after marking their students' tests. However, in this project, we just collect data such as names and student IDs and recognize them in order to prepare for the next stage.
-
-<p align="center"><img src="data/sample/giaythi5.jpg" width="500"></p>
-<p align="center"><i>Figure 1. Test paper of Ho Chi Minh University of Technology </i></p>
-
-As you can see, I use my university's test paper. My name is Mai Chi Bao and my student ID (MSSV) is 1710586. Those are handwritten information that I'd want to cut out. Of course, there's the score. But we'll talk about it at another repository later.
 
 ## 2. User
 The workflow of this system is like this
@@ -41,7 +33,6 @@ After pressing the Start button, It'll appear the Test paper Image. I'll update 
 
 ## 3. Dataset
 * Word dataset for name: [ICFHR2018 Competition on Vietnamese Online Handwritten Text Recognition Database (HANDS-VNOnDB2018)](http://tc11.cvc.uab.es/datasets/HANDS-VNOnDB2018_1/) . You can use `data/inkml_2_img.py` to covert ikml file into images
-* Digit dataset for student ID and score: MNIST dataset. I generated multi - digit number from MNIST. You can find the code in my [repo](https://github.com/mrzaizai2k/Multi-digit-images-generator-MNIST-)
 
 Those are raw data, and without Data Augmentation, they won't assist at all.
 * Elastic Transform
@@ -125,8 +116,6 @@ I have created 2 Kaggle Notebooks for training name and student ID (MSSV). I had
 * [MSSV training notebook](https://www.kaggle.com/bomaich/multi-digit-crnn-ctc)
 
 I also used Early Stopping, Learning rate changing to increase the performance
-
-You can find the `.h5` model in my [google drive](https://drive.google.com/drive/folders/1z2GdAg8uz-ZCni1glbG1A-M6f7-R_6Y2?usp=sharing) because GitHub don't allow me to upload file bigger than 25Mb
 
 ## 8. Result
 Because of the variations in the word and number datasets, I had to change the way I trained the model, set up parameters, and assessed it. For name recognition, I'll focus on the strategies I employed throughout the training phase. Due to the lack of real data, I'd evaluate number recognition based on how I built the dataset.
